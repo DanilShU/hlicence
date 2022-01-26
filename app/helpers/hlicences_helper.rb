@@ -1,0 +1,2 @@
+module HlicencesHelper
+end

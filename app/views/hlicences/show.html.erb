@@ -1,0 +1,19 @@
+<h1><%= @hlicence.name %></h1>
+
+<p><%= @hlicence.department %></p>
+<p><%= @hlicence.gender %></p>
+<p><%= @hlicence.specie %></p>
+
+<ul>
+  <li><%= link_to "Edit", edit_hlicence_path(@hlicence) %></li>
+  <li><%= link_to "Destroy", hlicence_path(@hlicence), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "NO WAY brother"
+                  } %></li>
+</ul>
+
+<h2>Comments</h2>
+  <%= render @hlicence.comments %>
+
+<h2>Add a comment:</h2>
+<%= render 'comments/form' %>

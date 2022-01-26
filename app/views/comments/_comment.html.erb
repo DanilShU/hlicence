@@ -1,0 +1,17 @@
+<% unless comment.archived? %>
+  <p>
+  <strong>user:</strong>
+  <%= comment.user %>
+  </p>
+
+  <p>
+    <strong>Comment:</strong>
+    <%= comment.body %>
+  </p>
+  <p>
+  <%= link_to "Destroy Comment", [comment.hlicence, comment], data: {
+                turbo_method: :delete,
+                turbo_confirm: "damn?"
+              } %>
+  </p>
+<% end %>

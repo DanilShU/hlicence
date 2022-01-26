@@ -1,0 +1,12 @@
+<h1>Hlicences</h1>
+<ul>
+  <% @hlicences.each do |hlicence| %>
+    <% unless hlicence.archived? %>
+      <li>
+        <%= link_to hlicence.name, hlicence %>
+      </li>
+    <% end %>
+  <% end %>
+</ul>
+
+<%= link_to "New Hlicence", new_hlicence_path %>

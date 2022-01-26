@@ -1,0 +1,42 @@
+<%= form_with model: @hlicence do |form| %>
+  <div>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+    <% @hlicence.errors.full_messages_for(:name).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+  
+  <div>
+    <%= form.label :department %><br>
+    <%= form.text_field :department %>
+    <% @hlicence.errors.full_messages_for(:department).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :gender %><br>
+    <%= form.text_field :gender %>
+    <% @hlicence.errors.full_messages_for(:gender).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :specie %><br>
+    <%= form.text_field :specie %>
+    <% @hlicence.errors.full_messages_for(:specie).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :status %><br>
+    <%= form.select :status, ['public', 'private', 'archived'], selected: 'public' %>
+  </div>
+  
+  <div>
+  	<%=form.submit %>
+  </div>
+<% end %>
