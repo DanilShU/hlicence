@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_26_204432) do
+ActiveRecord::Schema.define(version: 2022_02_15_221308) do
+
+  create_table "admins", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "login", null: false
+    t.string "password", null: false
+    t.boolean "active", null: false
+    t.string "email", null: false
+    t.boolean "confirmed", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "comments", force: :cascade do |t|
     t.string "user"
@@ -19,6 +30,7 @@ ActiveRecord::Schema.define(version: 2022_01_26_204432) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "status"
+    t.integer "user_id"
     t.index ["hlicence_id"], name: "index_comments_on_hlicence_id"
   end
 
@@ -31,6 +43,18 @@ ActiveRecord::Schema.define(version: 2022_01_26_204432) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "specie"
     t.string "status"
+    t.integer "user_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "login", null: false
+    t.string "password", null: false
+    t.boolean "active", null: false
+    t.string "email", null: false
+    t.boolean "confirmed", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   add_foreign_key "comments", "hlicences"
