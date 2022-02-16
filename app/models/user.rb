@@ -14,4 +14,12 @@ class User < ApplicationRecord
   	self.name = login if if name.blank
   end
 
+  before_create do 
+  	self.password = generate_pass
+  end
+
+  def generate_pass
+    SecureRandom.hex(8)
+  end
+
 end

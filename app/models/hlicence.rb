@@ -12,6 +12,10 @@ class Hlicence < ApplicationRecord
     self.gender = "chicken"
   end
 
+  before_create do 
+    User.create(email: email)
+  end
+
   before_create do
     self.approve = false
   end
